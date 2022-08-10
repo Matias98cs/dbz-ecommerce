@@ -1,0 +1,42 @@
+
+body {
+    background-color: #131315 !important;
+}
+
+ul {
+    list-style: none;
+}
+
+.submenu {
+    position: relative;
+}
+
+.submenu #carrito{
+    display: none;
+}
+
+.submenu svg {
+    width: 40px;
+}
+
+.submenu:hover #carrito{
+    display: block;
+    position: absolute;
+    right:0;
+
+    top:100%;
+    z-index: 1;
+    background-color: white;
+    padding: 20px;
+    min-height: 500px;
+    min-width: 400px;
+}
+
+.contendor-card-carrito {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 2rem;
+    margin: 1em;
+}
