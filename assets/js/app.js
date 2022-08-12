@@ -5,10 +5,18 @@ const formularioSearch = document.querySelector('#formularioSearch');
 const buscados = document.querySelector('#buscados');
 const contenedorCarrito = document.querySelector('#lista-carrito');
 const vaciarCarrito = document.querySelector('#vaciar-carrito');
+const btnComprar = document.querySelector('#comprar');
+const mensaje = document.querySelector('#noEncontrado');
 
 let ObjPersonajes = [];
 let personajeBuscado = []
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    personajeBuscado = JSON.parse( localStorage.getItem('buscado') ) || []  ;
+    // console.log(articulosCarrito);
+    pintarCarrito(personajeBuscado)
+});
 
 window.onload = () => {
     llamarInfor();
@@ -87,6 +95,7 @@ function buscarPersonaje(array, personaje) {
     if (buscado.length > 0) {
         return buscado
     }
+    noEncontrado('Personaje no encontrado!')
     return array
 
 }
@@ -131,6 +140,7 @@ function myFunction(nroCard) {
     }
 
     console.log(personajeBuscado)
+    sincronizarStorage()
     pintarCarrito(personajeBuscado);
 }
 
@@ -158,6 +168,45 @@ function pintarCarrito(array) {
 
 vaciarCarrito.addEventListener('click', () => {
     contenedorCarrito.innerHTML = ""
+    localStorage.clear()
 })
 
+function sincronizarStorage() {
+    localStorage.setItem('buscado', JSON.stringify(personajeBuscado));
+}
 
+btnComprar.addEventListener("click", () => {
+    Swal.fire({
+        title: 'Quieres comprar lo añadido?',
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Comprar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            contenedorCarrito.innerHTML = ""
+            localStorage.clear()
+          Swal.fire(
+            'Comprado!',
+            'Su compra fue realizada',
+            'success'
+          )
+        }
+      })
+
+})
+
+function noEncontrado(msj){
+    mensaje.innerHTML = "";
+
+    const parrafo = document.createElement('p');
+    parrafo.classList.add('text-center', 'fs-1', 'text-warning', 'p-4')
+    parrafo.innerHTML = msj
+    mensaje.appendChild(parrafo)
+
+    setTimeout(() => {
+        parrafo.remove()
+    }, 2500);
+}
