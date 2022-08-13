@@ -11,12 +11,12 @@ const spinner = document.querySelector('#spinner');
 const cantidadTotalBtn = document.querySelector('#cantidadTotal');
 
 let ObjPersonajes = [];
-let personajeBuscado = []
-let cantidadTotalAPagar = 0
+let personajeBuscado = [];
+let cantidadTotalAPagar = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     personajeBuscado = JSON.parse(localStorage.getItem('buscado')) || [];
-    pintarCarrito(personajeBuscado)
+    pintarCarrito(personajeBuscado);
 });
 
 window.onload = () => {
@@ -86,7 +86,7 @@ formularioSearch.addEventListener('keyup', e => {
     e.preventDefault()
     let buscado = btnBuscar.value;
     buscarPersonaje(ObjPersonajes, buscado);
-    pintarCards(buscarPersonaje(ObjPersonajes, buscado), contenedorCards)
+    pintarCards(buscarPersonaje(ObjPersonajes, buscado), contenedorCards);
 })
 
 function buscarPersonaje(array, personaje) {
@@ -132,7 +132,7 @@ function comprarCarta(nroCard) {
         const cantidadPerso = personajeBuscado.map(perso => {
             if (perso.id === nuevoObj.id) {
                 let cantidad = parseInt(perso.cantidad);
-                cantidad++
+                cantidad++;
                 perso.cantidad = cantidad;
                 return perso;
             } else {
@@ -192,7 +192,7 @@ function sincronizarStorage() {
 }
 
 function sumarCantidadTotal() {
-    cantidadTotalAPagar = 0
+    cantidadTotalAPagar = 0;
     personajeBuscado.forEach(perso => {
         cantidadTotalAPagar += perso.total;
     });
@@ -232,12 +232,12 @@ function noEncontrado(msj) {
     mensaje.innerHTML = "";
 
     const parrafo = document.createElement('p');
-    parrafo.classList.add('text-center', 'fs-1', 'text-mensaje', 'p-4')
-    parrafo.innerHTML = msj
-    mensaje.appendChild(parrafo)
+    parrafo.classList.add('text-center', 'fs-1', 'text-mensaje', 'p-4');
+    parrafo.innerHTML = msj;
+    mensaje.appendChild(parrafo);
 
     setTimeout(() => {
-        parrafo.remove()
+        parrafo.remove();
     }, 2500);
 }
 
