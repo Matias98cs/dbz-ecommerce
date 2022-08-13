@@ -82,7 +82,7 @@ function pintarCards(personajes, contenedor) {
     });
 }
 
-formularioSearch.addEventListener('submit', e => {
+formularioSearch.addEventListener('keyup', e => {
     e.preventDefault()
     let buscado = btnBuscar.value;
     buscarPersonaje(ObjPersonajes, buscado);
@@ -90,15 +90,14 @@ formularioSearch.addEventListener('submit', e => {
 })
 
 function buscarPersonaje(array, personaje) {
-
-    let ingresado = personaje.charAt(0).toUpperCase() + personaje.slice(1);
-    let buscado = array.filter(ele => ele.name === ingresado);
-    if (buscado.length > 0) {
-        return buscado
+    let buscadosArray = array.filter((ele) =>
+        ele.name.toLocaleLowerCase().includes(personaje.toLowerCase()));
+    if (buscadosArray.length > 0) {
+        return buscadosArray;
+    } else {
+        noEncontrado("No se encontro el personaje");
+        return [];
     }
-    noEncontrado('Personaje no encontrado!')
-    return array
-
 }
 
 function comprarCarta(nroCard) {
