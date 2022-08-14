@@ -11,12 +11,12 @@ const spinner = document.querySelector('#spinner');
 const cantidadTotalBtn = document.querySelector('#cantidadTotal');
 
 let ObjPersonajes = [];
-let personajeBuscado = []
-let cantidadTotalAPagar = 0
+let personajeBuscado = [];
+let cantidadTotalAPagar = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     personajeBuscado = JSON.parse(localStorage.getItem('buscado')) || [];
-    pintarCarrito(personajeBuscado)
+    pintarCarrito(personajeBuscado);
 });
 
 window.onload = () => {
@@ -47,7 +47,7 @@ function guardarData(data) {
             name: name,
             originplanet: originplanet,
             specie: specie,
-            price: numeroRandom(500),
+            price: numeroRandom(1000),
             cantidad: 1
         };
 
@@ -82,23 +82,22 @@ function pintarCards(personajes, contenedor) {
     });
 }
 
-formularioSearch.addEventListener('submit', e => {
+formularioSearch.addEventListener('keyup', e => {
     e.preventDefault()
     let buscado = btnBuscar.value;
     buscarPersonaje(ObjPersonajes, buscado);
-    pintarCards(buscarPersonaje(ObjPersonajes, buscado), contenedorCards)
+    pintarCards(buscarPersonaje(ObjPersonajes, buscado), contenedorCards);
 })
 
 function buscarPersonaje(array, personaje) {
-
-    let ingresado = personaje.charAt(0).toUpperCase() + personaje.slice(1);
-    let buscado = array.filter(ele => ele.name === ingresado);
-    if (buscado.length > 0) {
-        return buscado
+    let buscadosArray = array.filter((ele) =>
+        ele.name.toLocaleLowerCase().includes(personaje.toLowerCase()));
+    if (buscadosArray.length > 0) {
+        return buscadosArray;
+    } else {
+        noEncontrado("No se encontro el personaje");
+        return [];
     }
-    noEncontrado('Personaje no encontrado!')
-    return array
-
 }
 
 function comprarCarta(nroCard) {
@@ -133,7 +132,7 @@ function comprarCarta(nroCard) {
         const cantidadPerso = personajeBuscado.map(perso => {
             if (perso.id === nuevoObj.id) {
                 let cantidad = parseInt(perso.cantidad);
-                cantidad++
+                cantidad++;
                 perso.cantidad = cantidad;
                 return perso;
             } else {
@@ -193,7 +192,7 @@ function sincronizarStorage() {
 }
 
 function sumarCantidadTotal() {
-    cantidadTotalAPagar = 0
+    cantidadTotalAPagar = 0;
     personajeBuscado.forEach(perso => {
         cantidadTotalAPagar += perso.total;
     });
@@ -233,12 +232,12 @@ function noEncontrado(msj) {
     mensaje.innerHTML = "";
 
     const parrafo = document.createElement('p');
-    parrafo.classList.add('text-center', 'fs-1', 'text-mensaje', 'p-4')
-    parrafo.innerHTML = msj
-    mensaje.appendChild(parrafo)
+    parrafo.classList.add('text-center', 'fs-1', 'text-mensaje', 'p-4');
+    parrafo.innerHTML = msj;
+    mensaje.appendChild(parrafo);
 
     setTimeout(() => {
-        parrafo.remove()
+        parrafo.remove();
     }, 2500);
 }
 
