@@ -8,7 +8,7 @@
     <title>Dragon Ball Cards</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -18,11 +18,20 @@
 <body>
     <nav class="navbar bg-dark">
         <div class="container-fluid">
-            <a href="products.html" class="navbar-brand">
+            <a href="news.html" class="navbar-brand">
                 <img src="./assets/img/pngwing-com-1.png" alt="" height="100">
             </a>
+            <div>
+                <h1 class="text-white">Cartas Sueltas</h1>
+            </div>
+            <div class="text-center d-flex justify-content-center align-items-center">
+                <a href="products.html" class="text-white fs-4"
+                    style="text-decoration: none; color: #FF6600 !important;">
+                    Cartas <img src="./assets/img/shopping-bag.svg">
+                </a>
+            </div>
 
-            <form class="d-flex" role="search" id="formularioSearch">
+            <!-- <form class="d-flex" role="search" id="formularioSearch">
                 <input  id="btnBuscar" class="form-control me-2" type="search" placeholder="Buscar Personaje">
                 <button class="btn btn-warning">Buscar</button>
             </form>
@@ -40,14 +49,60 @@
                             </div>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </nav>
-    <main  id="spinner" class="pt-4">
-        <div id="noEncontrado"></div>
-        <div id="buscados" class="container d-flex justify-content-center align-items-center flex-wrap gap-4"></div>
-        <div class="container d-flex justify-content-center align-items-center flex-wrap gap-4" id="contenedorCards">
+    <main id="spinner" class="">
+        <div class="imagen-1">
+            <div class="container d-flex justify-content-center align-items-center flex-wrap gap-4 containerNews" id="contenedorCards">
+                <h2>Cartas nuevas</h2>
+                <div class="contenedorCartas">
+                    <div id="card" class="card bg-transparent border border-0 align-items-center" style="width: 18rem;">
+                        <div class="d-flex justify-content-center">
+                            <img src="https://i.ibb.co/XjmRwZp/Dragon-Ball-Gohan-PNG-Pic.png" class="card-img-top" style="height: 14rem"">
+                        </div>
+                        <div class="card d-flex justify-content-center" style="width: 15rem;">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Nombre: <strong>Gohan</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="card" class="card bg-transparent border border-0 align-items-center" style="width: 18rem;">
+                        <div class="d-flex justify-content-center">
+                            <img src="https://i.ibb.co/pfs4Ynn/Napapa-render.webp" class="card-img-top" style="height: 14rem"">
+                        </div>
+                        <div class="card d-flex justify-content-center" style="width: 15rem;">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Nombre: <strong>Napapa</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="card" class="card bg-transparent border border-0 align-items-center" style="width: 18rem;">
+                        <div class="d-flex justify-content-center">
+                            <img src="https://i.ibb.co/Qjbz7Hv/Jiren-render.webp" class="card-img-top" style="height: 14rem"">
+                        </div>
+                        <div class="card d-flex justify-content-center" style="width: 15rem;">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Nombre: <strong>Jiren</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="card" class="card bg-transparent border border-0 align-items-center" style="width: 18rem;">
+                        <div class="d-flex justify-content-center">
+                            <img src="https://i.ibb.co/Gn7q1y6/Bardock-Super-artwork.webp" class="card-img-top" style="height: 14rem"">
+                        </div>
+                        <div class="card d-flex justify-content-center" style="width: 15rem;">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Nombre: <strong>Bardock</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
         </div>
+
     </main>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./assets/js/news.js"></script>

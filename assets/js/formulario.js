@@ -7,7 +7,7 @@ formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log(btnEmail.value)
     if(btnEmail.vallue != "" && btnPass.value != ""){
-        location.replace("products.html")
+        location.replace("news.html")
 
     }else {
         mostrarMensaje('Ingrese sus datos en ambos campos')
