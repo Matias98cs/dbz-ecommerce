@@ -7,6 +7,34 @@ ul {
     list-style: none;
 }
 
+.imagen-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    height: 88.5vh !important;
+    background-size: cover;
+    background-repeat:  no-repeat;
+    background-image: url("../img/656026.jpg");
+}
+
+.contenedorCartas {
+    display: flex;
+}
+
+.containerNews {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.726);
+}
+
+.containerNews h2 {
+    font-weight: bold;
+}
+
 .submenu {
     position: relative;
 }
@@ -40,6 +68,8 @@ ul {
     border-radius: 1rem;
     margin: 1em;
 }
+
+
 
 .text-mensaje {
     color: #FF6600;
