@@ -213,8 +213,8 @@ btnComprar.addEventListener("click", () => {
             if (result.isConfirmed) {
                 limpiarLocalStorage();
                 Swal.fire(
-                    'Comprado!',
-                    'Su compra fue realizada',
+                    'Compra realizada!',
+                    'Su compra fue realizada muchas gracias',
                     'success',
                 )
             }
