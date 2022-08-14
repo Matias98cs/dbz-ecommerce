@@ -47,7 +47,7 @@ function guardarData(data) {
             name: name,
             originplanet: originplanet,
             specie: specie,
-            price: numeroRandom(500),
+            price: numeroRandom(1000),
             cantidad: 1
         };
 
