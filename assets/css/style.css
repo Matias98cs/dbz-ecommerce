@@ -22,6 +22,14 @@ ul {
     display: flex;
 }
 
+.image-scale img:hover {
+    transform: scale(1.2);
+}
+
+.btn-scale:hover {
+    transform: scale(1.03);
+}
+
 .containerNews {
     padding: 1em;
     display: flex;
