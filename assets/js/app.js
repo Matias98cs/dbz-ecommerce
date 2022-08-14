@@ -64,7 +64,7 @@ function pintarCards(personajes, contenedor) {
         const card = document.createElement("div");
         card.innerHTML = `
         <div id="card" class="card bg-transparent border border-0 align-items-center" style="width: 18rem;">
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center image-scale">
                 <img src="${imageUrl}" class="card-img-top" style="height: 14rem"">
             </div>
             <div class="card d-flex justify-content-center" style="width: 15rem;">
@@ -74,7 +74,7 @@ function pintarCards(personajes, contenedor) {
                     <li class="list-group-item">Origen: <strong>${originplanet}</strong></li>
                     <li class="list-group-item">Precio: $<strong>${price}</strong></li>
                 </ul>
-                <button onclick="comprarCarta(${id})" class="btn btn-warning">Comprar</button>
+                <button onclick="comprarCarta(${id})" class="btn btn-warning btn-scale">Comprar</button>
             </div>
         </div>
         `;
